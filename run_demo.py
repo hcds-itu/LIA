@@ -12,7 +12,7 @@ import os
 
 dir = os.getcwd()
 print(dir)
-
+print(os.listdir(dir+"/checkpoints"))
 
 def load_image(filename, size):
     img = Image.open(filename).convert('RGB')
