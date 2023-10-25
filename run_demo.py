@@ -8,7 +8,11 @@ import os
 from PIL import Image
 from pathlib import Path
 from tqdm import tqdm
+import os
 
+dir = os.getcwd()
+print(dir)
+print(os.listdir(dir+"/checkpoints"))
 
 def load_image(filename, size):
     img = Image.open(filename).convert('RGB')
@@ -51,11 +55,11 @@ class Demo(nn.Module):
         self.args = args
 
         if args.model == 'vox':
-            model_path = 'checkpoints/vox.pt'
+            model_path = dir + '/checkpoints/vox.pt'
         elif args.model == 'taichi':
-            model_path = 'checkpoints/taichi.pt'
+            model_path = dir + '/checkpoints/taichi.pt'
         elif args.model == 'ted':
-            model_path = 'checkpoints/ted.pt'
+            model_path = dir + '/checkpoints/ted.pt'
         else:
             raise NotImplementedError
 
